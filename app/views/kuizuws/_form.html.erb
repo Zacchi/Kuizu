@@ -1,0 +1,21 @@
+<%= form_for(@kuizuw) do |f| %>
+  <% if @kuizuw.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@kuizuw.errors.count, "error") %> prohibited this kuizuw from being saved:</h2>
+
+      <ul>
+      <% @kuizuw.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :anumber %><br>
+    <%= f.number_field :anumber %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

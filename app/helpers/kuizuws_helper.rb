@@ -1,0 +1,2 @@
+module KuizuwsHelper
+end

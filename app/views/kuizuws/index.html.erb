@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Kuizuws</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Anumber</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kuizuws.each do |kuizuw| %>
+      <tr>
+        <td><%= kuizuw.anumber %></td>
+        <td><%= link_to 'Show', kuizuw %></td>
+        <td><%= link_to 'Edit', edit_kuizuw_path(kuizuw) %></td>
+        <td><%= link_to 'Destroy', kuizuw, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Kuizuw', new_kuizuw_path %>
