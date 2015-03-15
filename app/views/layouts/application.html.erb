@@ -8,11 +8,20 @@
 </head>
 <body>
 
-<%= yield %>
+
+
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "Login", new_user_session_path %></li>
+    <li><%= link_to "Log Out", destroy_user_session_path, :method=>'delete' %>
+  </ul>
 
 
 <p class="notice"><%= notice %></p>
  <p class="alert"><%= alert %></p>
+
+ <%= yield %>
 
 </body>
 </html>
