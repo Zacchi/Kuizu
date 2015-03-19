@@ -1,7 +1,7 @@
 PATH
   remote: gemz
   specs:
-    checkpercentage (0.0.0)
+    checkpercentage (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -177,7 +177,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass (~> 3.2.0)
   byebug
-  checkpercentage (~> 0.0.0)!
+  checkpercentage (~> 0.1.0)!
   coffee-rails (~> 4.1.0)
   devise
   jbuilder (~> 2.0)

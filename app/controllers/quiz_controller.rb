@@ -51,6 +51,4 @@ require 'checksomething'
 	def summary
 	end
 
-
-
 end
