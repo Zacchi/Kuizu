@@ -1,0 +1,19 @@
+<h1>Summary results</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Results</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+	<% $resultlist.each do |item| %>
+      <tr>
+        <td><%= item %></td>
+      </tr>
+	<% end %>
+  <br />
+  </tbody>
+</table>
+

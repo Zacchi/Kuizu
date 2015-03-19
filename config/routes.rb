@@ -1,18 +1,24 @@
 Rails.application.routes.draw do
+  resources :validate_percentages
+
   devise_for :users
   #get '/login', :controller=> '/users/sessions', :action=>'create'
 
   resources :kuizuws
+  resources :users
 
   # devise_scope :users do
   #   get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
   #   devise_for :users
   # end
-  
-  resources :users
 
-
+  get '/quiz', to: 'quiz#index'
+  post '/validate', to:'quiz#validate'  
+  get '/summary', to: 'quiz#summary'
+ 
   root :to => 'home#index'
+
+  #get '/checkcercentage' 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

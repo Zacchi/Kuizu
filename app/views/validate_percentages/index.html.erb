@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<br>
+
+<h1>What is the percentage of <%= @randomNumber1 %> percentage of <%= @randomNumber2 %>?</h1>
+<%= form_tag("/validateanswer", method: "post") do %>
+ <%= label_tag(:userAnswer, "Answer:") %>
+ <%= text_field_tag(:userAnswer) %>
+ <%= submit_tag("Submit Asnwer") %>
+<% end %>

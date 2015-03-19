@@ -1,0 +1,63 @@
+class QuizController < ApplicationController
+require 'checkpercentage'
+
+	$results1 = [""]
+	$results2 = [""]
+
+	def index
+
+	    $randomNumForQ1a = 100+rand(10000);
+	    $randomNumForQ1b = 100+rand(10000);
+	    $randomNumForQ2a = 100+rand(10000);
+	    $randomNumForQ2b = 100+rand(10000);
+	    $randomNumForQ3a = 100+rand(10000);
+	    $randomNumForQ3b = 100+rand(10000);
+	end
+
+	def validate
+		byebug
+		#if (params[:userAnswer].to_i > 0) 
+		@inputFromUserQ1 = params[:userAnswerQ1].to_i
+		@callModel = ValidatePercentage.new
+		@correctAnswerQ1 = Checksomething.findAmount($randomNumForQ1a, $randomNumForQ1b)
+
+		if(@inputFromUserQ1 == @correctAnswerQ1)
+			respond_to do |format|
+				$results1 = ["Answer is correct"] 
+				format.html { render :summary }
+			end
+		else
+			respond_to do |format|
+				$results1 = ["Answer is wrong! " ]
+				#Sumary = "To get to the result first you have to multiply #{$randomNumber1} and #{$randomNumber2} then divide by 100"
+				#resultOfPct = pctValue1 * pctValue2/100
+				format.html { render :summary }
+			end
+		end
+
+		#Question 2
+		@inputFromUserQ2 = params[:userAnswerQ2].to_i
+		@callModel = ValidatePercentage.new
+		@correctAnswerQ2 = @callModel.findPercent($randomNumForQ2a, $randomNumForQ2b)
+		if(@inputFromUserQ2 == @correctAnswerQ2)
+			respond_to do |format|
+				$results2 = ["Answer is correct"] 
+				format.html { render :summary }
+			end
+		else
+			respond_to do |format|
+				$results2 = ["Answer is wrong! " ]
+				#Sumary = "To get to the result first you have to multiply #{$randomNumber1} and #{$randomNumber2} then divide by 100"
+				format.html { render :summary }
+			end
+		end
+
+
+	end
+
+	def summary
+	end
+
+
+
+end

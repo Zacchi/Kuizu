@@ -1,0 +1,34 @@
+<p id="notice"><%= @notice %></p>
+<br>
+
+
+<%= form_tag("/validate", method: "post") do %>
+	<h1>What is the percentage of <%= $randomNumForQ1a %> percentage of <%= $randomNumForQ1b %>?</h1>
+
+	<%= hidden_field_tag :randomNumForQ1a, $randomNumForQ1a %>
+	<%= hidden_field_tag :randomNumForQ1b, $randomNumForQ1b %>
+
+
+	<%= label_tag(:userAnswerQ1, "Answer:") %>
+	<%= text_field_tag(:userAnswerQ1) %>
+
+	<br />
+	<br /> 
+
+	<h1>What is the percentage of <%= $randomNumForQ2a %> percentage of <%= $randomNumForQ2b %>?</h1>
+
+	<%= hidden_field_tag :randomNumForQ2a, $randomNumForQ2a %>
+	<%= hidden_field_tag :randomNumForQ2b, $randomNumForQ2b %>
+
+
+	<%= label_tag(:userAnswerQ2, "Answer:") %>
+	<%= text_field_tag(:userAnswerQ2) %>
+	<br />
+	<br />
+	<br />
+	<%= submit_tag("Submit Asnwers") %>
+<% end %>
+
+<%= form_tag("/validate", method: "post") do %>
+
+<% end %>

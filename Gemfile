@@ -5,6 +5,8 @@ gem 'autoprefixer-rails'
 
 gem 'devise'
 
+gem 'checkpercentage', '~>0.0.0', :path => "/home/nci/Zacchi/kuizu/gemz"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
