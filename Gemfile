@@ -5,7 +5,7 @@ gem 'autoprefixer-rails'
 
 gem 'devise'
 
-gem 'checkpercentage', '~>0.1.0', :path => "/home/nci/Zacchi/kuizu/gemz"
+gem 'checkpercentage', '~>0.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
