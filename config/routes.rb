@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :kuizuws
   resources :users
+  resources :checkcercentage
 
   # devise_scope :users do
   #   get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session

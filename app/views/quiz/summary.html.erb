@@ -11,9 +11,13 @@
 	<% $resultlist.each do |item| %>
       <tr>
         <td><%= item %></td>
+        <br />
       </tr>
 	<% end %>
-  <br />
   </tbody>
 </table>
+
+<h2>Total score: <%= @score %> </h2>
+<%= hidden_field_tag :final_score, @displayScore %>
+<h3>You have: <%= @tomanucu %> </h3>
 

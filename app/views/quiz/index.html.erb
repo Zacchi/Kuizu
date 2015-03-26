@@ -1,9 +1,8 @@
 <p id="notice"><%= @notice %></p>
 <br>
 
-
-<%= form_tag("/validate", method: "post") do %>
-	<h1>What is the percentage of <%= $randomNumForQ1a %> percentage of <%= $randomNumForQ1b %>?</h1>
+	<%= form_tag("/validate", method: "post") do %>
+	<h1>What is <%= $randomNumForQ1a %> % of <%= $randomNumForQ1b %>?</h1>
 
 	<%= hidden_field_tag :randomNumForQ1a, $randomNumForQ1a %>
 	<%= hidden_field_tag :randomNumForQ1b, $randomNumForQ1b %>
@@ -15,7 +14,7 @@
 	<br />
 	<br /> 
 
-	<h1>What is the percentage of <%= $randomNumForQ2a %> percentage of <%= $randomNumForQ2b %>?</h1>
+	<h1><%= $randomNumForQ2a %> is what percentage of <%= $randomNumForQ2b %>?</h1>
 
 	<%= hidden_field_tag :randomNumForQ2a, $randomNumForQ2a %>
 	<%= hidden_field_tag :randomNumForQ2b, $randomNumForQ2b %>

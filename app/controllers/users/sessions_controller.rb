@@ -9,6 +9,12 @@ def create
 end
 
 
+  # def user_login
+  #   session[:login] = 1
+  #   flash[:notice] = "user successfully logged in, cart reset."
+  #   redirect_to :controller => :quiz
+  # end
+
   # GET /resource/sign_in
   # def new
   #   super

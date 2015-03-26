@@ -1,11 +1,14 @@
 source 'https://rubygems.org'
 
+#Gems used for this project
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
-
 gem 'devise'
+gem 'rspec'
 
-gem 'checkpercentage', '~>0.1.0'
+# custom gems
+gem 'checkpercentage', '~>0.1.4'
+gem 'gradescore', '~> 0.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
