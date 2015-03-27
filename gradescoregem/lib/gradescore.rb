@@ -8,6 +8,6 @@ class Gradescore
  	else
  		ans = "First class!"
  	end
- 	return ans
+  return ans
  end
 end # End Module

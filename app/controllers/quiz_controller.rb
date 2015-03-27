@@ -2,7 +2,7 @@ class QuizController < ApplicationController
 
 	before_filter :authenticate_user! #ensure user is logged in
 
-	$resultlist ||= Array.new # creates an array to store all results
+	$resultlist ||= Array.new # creates an array list to store all results
     
 	def index
 	    $randomNumForQ1a = 10+rand(500)
@@ -21,6 +21,10 @@ class QuizController < ApplicationController
 
 		$resultlist.clear #clear resultlist before quiz starts
 		@score = 0 #user points
+
+		$final_score = ""
+
+		#Q1
 		@inputFromUserQ1 = params[:userAnswerQ1].to_i
 		@correctAnswerQ1 = Checkpercentage.find_amount($randomNumForQ1a, $randomNumForQ1b)
 		
@@ -41,30 +45,24 @@ class QuizController < ApplicationController
 		@correctAnswerQ2 = Checkpercentage.find_percent($randomNumForQ2a, $randomNumForQ2b)
 
 		if(@inputFromUserQ2 == @correctAnswerQ2)
-			respond_to do |format|
-				$resultlist.push("Q2: Your answer #{@inputFromUserQ2} is correct! <win points>") 
-				@score = @score+2
-				format.html { render :summary }
-			end
+			$resultlist.push("Q2: Your answer #{@inputFromUserQ2} is correct! <win points>") 
+			@score = @score+2
 		else
-			respond_to do |format|
-				$resultlist.push("Q2: Your answer #{@inputFromUserQ2} is Incorrect. The correct answer is #{@correctAnswerQ2}.\n 
-					To solve this math do the following:/\n/
-					Divide #{$randomNumForQ2a} with #{$randomNumForQ2b} = #{$divideForQ2}.\n
-					Then multipy it by 100 = #{$divideForQ2} * 100 = #{@correctAnswerQ2}% \n")
-				$resultlist.each do |s|
-					s.gsub(/\n/, '<br />')
-				end 
-				@score = @score+1
-				format.html { render :summary }
-
-			end
+			$resultlist.push("Q2: Your answer #{@inputFromUserQ2} is Incorrect. The correct answer is #{@correctAnswerQ2}.\n 
+				To solve this math do the following:/\n/
+				Divide #{$randomNumForQ2a} with #{$randomNumForQ2b} = #{$divideForQ2}.\n
+				Then multipy it by 100 = #{$divideForQ2} * 100 = #{@correctAnswerQ2}% \n")
+				#gsub(/\n/, '<br />')	
+			@score = @score+1
 		end
-	
 
-	@displayScore ||= Array.new 
-	@final_score = Gradescore.runcheck(@score)
-	@tomanucu = @final_score.to_s
+		$final_core.save
+
+		$final_score = Gradescore.runcheck(@score)
+
+		respond_to do |format|
+		format.html { render :summary }
+		end
 
 
 	end # END of def
@@ -72,18 +70,5 @@ class QuizController < ApplicationController
 	def summary
 	end
 
-# class Gradescore2
-
-# def self.runcheck(score)
-# 	if score <= 4
-# 		ans = "Failed!"
-# 	elsif (score > 4 && score <=7)
-# 		ans = "Pass!"
-# 	else
-#  		ans = "First class!"
-#  	end
-#  	return ans
-#  end
-# end # End Module
 
 end
