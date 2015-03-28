@@ -22,10 +22,46 @@
 
 	<%= label_tag(:userAnswerQ2, "Answer:") %>
 	<%= text_field_tag(:userAnswerQ2) %>
+
+	<br />
+	<br /> 
+
+	<h1><%= $randomNumForQ3a %> is <%= $randomNumForQ3b %>% of what number?</h1>
+
+	<%= hidden_field_tag :randomNumForQ3a, $randomNumForQ3a %>
+	<%= hidden_field_tag :randomNumForQ3b, $randomNumForQ3b %>
+
+
+	<%= label_tag(:userAnswerQ3, "Answer:") %>
+	<%= text_field_tag(:userAnswerQ3) %>
+
+	<h1>What is <%= $randomNumForQ4a %> % of <%= $randomNumForQ4b %>?</h1>
+
+	<%= hidden_field_tag :randomNumForQ4a, $randomNumForQ4a %>
+	<%= hidden_field_tag :randomNumForQ4b, $randomNumForQ4b %>
+
+
+	<%= label_tag(:userAnswerQ4, "Answer:") %>
+	<%= text_field_tag(:userAnswerQ4) %>
+
+	<br />
+	<br /> 
+
+	<h1><%= $randomNumForQ5a %> is what percentage of <%= $randomNumForQ5b %>?</h1>
+
+	<%= hidden_field_tag :randomNumForQ5a, $randomNumForQ5a %>
+	<%= hidden_field_tag :randomNumFor5b, $randomNumForQ5b %>
+
+
+	<%= label_tag(:userAnswerQ5, "Answer:") %>
+	<%= text_field_tag(:userAnswerQ5) %>
+
+	
+
 	<br />
 	<br />
 	<br />
-	<%= submit_tag("Submit Asnwers") %>
+	<%= submit_tag("Submit") %>
 <% end %>
 
 <%= form_tag("/validate", method: "post") do %>

@@ -24,3 +24,12 @@ RSpec.describe Checkpercentage  do
     end
   end
 end
+
+RSpec.describe Checkpercentage  do
+  context "number is correct" do
+    it "is correct" do
+      expect(Checkpercentage.find_base(250, 135)).to equal(186)
+    end
+  end
+end
+

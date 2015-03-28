@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get '/summary', to: 'quiz#summary'
  
   root :to => 'home#index'
+  get '404', to: redirect('/')
+ 
 
   #get '/checkcercentage' 
 
