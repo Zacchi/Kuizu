@@ -13,7 +13,7 @@ class QuizController < ApplicationController
 	    $randomNumForQ3b = 10+rand(199)
 
 	    $timesForQ1 =  $randomNumForQ1a * $randomNumForQ1b
-	    $divideForQ2 = $randomNumForQ2a/ $randomNumForQ2b
+	    $divideForQ2 = ($randomNumForQ2a.to_f/ $randomNumForQ2b.to_f).round(2)
 
 	end
 
@@ -41,23 +41,24 @@ class QuizController < ApplicationController
 		end
 
 		#Question 2
-		@inputFromUserQ2 = params[:userAnswerQ2].to_i
+		@inputFromUserQ2 = params[:userAnswerQ2].to_f.ceil
 		@correctAnswerQ2 = Checkpercentage.find_percent($randomNumForQ2a, $randomNumForQ2b)
 
 		if(@inputFromUserQ2 == @correctAnswerQ2)
 			$resultlist.push("Q2: Your answer #{@inputFromUserQ2} is correct! <win points>") 
 			@score = @score+2
 		else
-			$resultlist.push("Q2: Your answer #{@inputFromUserQ2} is Incorrect. The correct answer is #{@correctAnswerQ2}.\n 
-				To solve this math do the following:/\n/
-				Divide #{$randomNumForQ2a} with #{$randomNumForQ2b} = #{$divideForQ2}.\n
+			$resultlist.push("Q2: Your answer #{@inputFromUserQ2} is Incorrect. The correct answer is #{@correctAnswerQ2}. \n 
+				To solve this math do the following: /\n/
+				Divide #{$randomNumForQ2a} with #{$randomNumForQ2b} = #{$divideForQ2}. \n
 				Then multipy it by 100 = #{$divideForQ2} * 100 = #{@correctAnswerQ2}% \n")
-				#gsub(/\n/, '<br />')	
+				
 			@score = @score+1
 		end
+		
+    	
 
-		$final_core.save
-
+		#simple_format(resultlist)
 		$final_score = Gradescore.runcheck(@score)
 
 		respond_to do |format|
@@ -66,6 +67,28 @@ class QuizController < ApplicationController
 
 
 	end # END of def
+
+# 	class Checkpercentage2
+
+#   #1) what is  x% of y?
+#   def self.find_amount(rate, base)
+#     result_amount = rate * base/100
+#     return result_amount
+#   end 
+  
+#   #2) x is what percentage of y?
+#   def self.find_percent(amount, base)
+#   	result_percent = (amount.to_f.round(2)/base.to_f.round(2) * 100).ceil
+#     return result_percent
+#   end
+
+#   #3) x is y% of what number?
+#   def self.find_base(amount, rate)
+#    result_base = amount/rate * 100
+#    return result_base
+#   end
+
+# end # End Module
 
 	def summary
 	end

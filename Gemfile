@@ -7,7 +7,7 @@ gem 'devise'
 gem 'rspec'
 
 # custom gems
-gem 'checkpercentage', '~>0.1.4'
+gem 'checkpercentage', '~>0.2.1'
 gem 'gradescore', '~> 0.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -48,7 +48,7 @@ GEM
     builder (3.2.2)
     byebug (4.0.3)
       columnize (= 0.9.0)
-    checkpercentage (0.1.4)
+    checkpercentage (0.2.1)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -184,7 +184,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass (~> 3.2.0)
   byebug
-  checkpercentage (~> 0.1.4)
+  checkpercentage (~> 0.2.1)
   coffee-rails (~> 4.1.0)
   devise
   gradescore (~> 0.0.1)
