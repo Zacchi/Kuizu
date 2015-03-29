@@ -1,67 +1,49 @@
 <p id="notice"><%= @notice %></p>
-<br>
 
+	<H1><center> Quiz </center></h1>
+	<br>
+	
+	<div class="alert alert-info" role="alert"><strong>Hint: </strong> if result is not whole number (ie. 187.35352) then the correct answer is '188'</div>
+	
 	<%= form_tag("/validate", method: "post") do %>
-	<h1>What is <%= $randomNumForQ1a %> % of <%= $randomNumForQ1b %>?</h1>
-
+	<h2>Q1: What is <%= $randomNumForQ1a %> % of <%= $randomNumForQ1b %>?</h2>
 	<%= hidden_field_tag :randomNumForQ1a, $randomNumForQ1a %>
 	<%= hidden_field_tag :randomNumForQ1b, $randomNumForQ1b %>
-
-
 	<%= label_tag(:userAnswerQ1, "Answer:") %>
 	<%= text_field_tag(:userAnswerQ1) %>
-
 	<br />
-	<br /> 
 
-	<h1><%= $randomNumForQ2a %> is what percentage of <%= $randomNumForQ2b %>?</h1>
-
+	<h2>Q2: <%= $randomNumForQ2a %> is what percentage of <%= $randomNumForQ2b %>?</h2>
 	<%= hidden_field_tag :randomNumForQ2a, $randomNumForQ2a %>
 	<%= hidden_field_tag :randomNumForQ2b, $randomNumForQ2b %>
-
-
 	<%= label_tag(:userAnswerQ2, "Answer:") %>
 	<%= text_field_tag(:userAnswerQ2) %>
-
 	<br />
-	<br /> 
 
-	<h1><%= $randomNumForQ3a %> is <%= $randomNumForQ3b %>% of what number?</h1>
-
+	<h2>Q3: <%= $randomNumForQ3a %> is <%= $randomNumForQ3b %>% of what number?</h2>
 	<%= hidden_field_tag :randomNumForQ3a, $randomNumForQ3a %>
 	<%= hidden_field_tag :randomNumForQ3b, $randomNumForQ3b %>
-
-
 	<%= label_tag(:userAnswerQ3, "Answer:") %>
 	<%= text_field_tag(:userAnswerQ3) %>
-
-	<h1>What is <%= $randomNumForQ4a %> % of <%= $randomNumForQ4b %>?</h1>
-
+	<br />
+	
+	<h2>Q4: What is <%= $randomNumForQ4a %> % of <%= $randomNumForQ4b %>?</h2>
 	<%= hidden_field_tag :randomNumForQ4a, $randomNumForQ4a %>
 	<%= hidden_field_tag :randomNumForQ4b, $randomNumForQ4b %>
-
-
 	<%= label_tag(:userAnswerQ4, "Answer:") %>
 	<%= text_field_tag(:userAnswerQ4) %>
-
 	<br />
-	<br /> 
 
-	<h1><%= $randomNumForQ5a %> is what percentage of <%= $randomNumForQ5b %>?</h1>
-
+	<h2>Q5: <%= $randomNumForQ5a %> is what percentage of <%= $randomNumForQ5b %>?</h2>
 	<%= hidden_field_tag :randomNumForQ5a, $randomNumForQ5a %>
 	<%= hidden_field_tag :randomNumFor5b, $randomNumForQ5b %>
-
-
 	<%= label_tag(:userAnswerQ5, "Answer:") %>
 	<%= text_field_tag(:userAnswerQ5) %>
-
-	
-
 	<br />
 	<br />
 	<br />
 	<%= submit_tag("Submit") %>
+
 <% end %>
 
 <%= form_tag("/validate", method: "post") do %>

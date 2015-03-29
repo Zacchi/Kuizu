@@ -10,6 +10,13 @@ class QuizController < ApplicationController
 
 	$resultlist ||= Array.new # creates an array list to store all results
     
+
+    def create
+    	@quiz = Quiz.create(quiz_params)
+    	@quiz.user = current_user
+    	redirect_to :back
+	end
+	
 	def index
 
 	    $randomNumForQ1a = 10+rand(500)
@@ -58,7 +65,7 @@ class QuizController < ApplicationController
 
 		#Q1
 		@inputFromUserQ1 = params[:userAnswerQ1].to_i
-		@correctAnswerQ1 = Checkpercentage22.find_amount($randomNumForQ1a, $randomNumForQ1b)
+		@correctAnswerQ1 = Checkpercentage.find_amount($randomNumForQ1a, $randomNumForQ1b)
 		
 		if(@inputFromUserQ1 == @correctAnswerQ1)
 			$resultlist.push("Q1: Your answer #{@inputFromUserQ1} is correct! ") 

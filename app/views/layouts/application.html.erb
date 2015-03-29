@@ -9,7 +9,6 @@
 <body>
 
 
-
 <div class="container">
   <ul class="nav nav-tabs">
     <li><%= link_to "Home", root_path %></li>
@@ -17,14 +16,17 @@
     <li><%= link_to "Log Out", destroy_user_session_path, :method=>'delete' %>
   </ul>
 
-   <ul class = "nav pull-right">
+  <% if user_signed_in?  %>
+   <ul class = "nav pull-right"> 
       <li><%= link_to 'Welcome, '+current_user.email, edit_user_registration_path %></li>
    </ul>
+   <%end%>
 
 <p class="notice"><%= notice %></p>
  <p class="alert"><%= alert %></p>
-
+<div class="center jumbotron">
  <%= yield %>
-
+ 
+</div>
 </body>
 </html>

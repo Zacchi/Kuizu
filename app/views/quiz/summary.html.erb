@@ -1,18 +1,22 @@
-<h1>Summary results</h1>
-
+<h2><center>Summary results</center></h2>
+<br /> 
+<br /> 
 <table>
   <thead>
     <tr>
-      <th>Results</th>
+      <th>Answers</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
 	<% $resultlist.each do |item| %>
       <tr>
-        <td><%= item %></td>
-        <br />
-      </tr>
+        <td>
+          <div class="alert alert-warning" role="alert">
+          <%= item %>
+          </div>
+        </td>       
+      </tr>    
 	<% end %>
   </tbody>
 </table>
