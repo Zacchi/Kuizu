@@ -5,7 +5,6 @@ def create
     super do |resource|
       BackgroundWorker.trigger(resource)
     end
-  end
 end
 
 
@@ -29,6 +28,7 @@ end
   def destroy
     super
   end
+
 
   # protected
 
