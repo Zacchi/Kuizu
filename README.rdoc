@@ -3,12 +3,12 @@
 Controllers:
 * "quiz_controller" is the main controller that generates the questions displayed in the Quiz.
 
-Main Views:
+Main Views: 
 * Home#index
 * Devise
-* Quiz#idex - has the quiz first page)
+* Quiz#idex - has the quiz first page
 * Quiz#Summary - has the summary and the answers from quiz + results
 * Users - has all the pages for login/log out / sign up, etc
 * Gemz - first custom gem
-* gradescoregem - second custome gem  
+* gradescoregem - second custom gem  
 
