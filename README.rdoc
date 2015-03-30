@@ -1,5 +1,7 @@
 == README
 
+This is a project for 4th year in NCI - A very siple math quiz in Ruby on Rails
+
 Controllers:
 * "quiz_controller" is the main controller that generates the questions displayed in the Quiz.
 
