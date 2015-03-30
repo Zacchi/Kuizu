@@ -1,7 +1,6 @@
 class QuizController < ApplicationController
 	rescue_from "Exception", with: :errorHandling
 
-
 	def errorHandling(exception)
 		render text: exception.message
 	end
@@ -27,25 +26,18 @@ class QuizController < ApplicationController
 	    $randomNumForQ3b = 10+rand(199)
 		$randomNumForQ4a = 200+rand(400)
 	    $randomNumForQ4b = 10+rand(199)
-		$randomNumForQ5a = 200+rand(400)
-	    $randomNumForQ5b = 10+rand(199)
-		$randomNumForQ6a = 200+rand(400)
-	    $randomNumForQ6b = 10+rand(199)
-		$randomNumForQ7a = 200+rand(400)
-	    $randomNumForQ7b = 10+rand(199)
+		$randomNumForQ5a = 2+rand(25)
+	    $randomNumForQ5b = 1+rand(5)
 
 	    $timesForQ1 =  $randomNumForQ1a * $randomNumForQ1b
 	    $divideForQ2 = ($randomNumForQ2a.to_f/ $randomNumForQ2b.to_f).round(2)
 		$divideForQ3 = ($randomNumForQ3a.to_f/ $randomNumForQ3b.to_f).round(2)
 		$timesForQ4 =  $randomNumForQ4a * $randomNumForQ4b
 	    $divideForQ5 = ($randomNumForQ5a.to_f/ $randomNumForQ5b.to_f).round(2)
-		$divideForQ6 = ($randomNumForQ6a.to_f/ $randomNumForQ6b.to_f).round(2)
-		$timesForQ7 =  $randomNumForQ7a * $randomNumForQ7b
 	    
 	end
 
 	def validate
-
 
 		def myMethod data
 			if data.is_malformed?
@@ -63,7 +55,7 @@ class QuizController < ApplicationController
 
 		$final_score = ""
 
-		#Q1
+		#Question 1
 		@inputFromUserQ1 = params[:userAnswerQ1].to_i
 		@correctAnswerQ1 = Checkpercentage.find_amount($randomNumForQ1a, $randomNumForQ1b)
 		
@@ -122,17 +114,14 @@ class QuizController < ApplicationController
 		end
 
 		#Question 5
-		@inputFromUserQ5 = params[:userAnswerQ5].to_f.ceil
-		@correctAnswerQ5 = Checkpercentage.find_percent($randomNumForQ5a, $randomNumForQ5b)
+		@inputFromUserQ5 = params[:userAnswerQ5].to_i
+		@correctAnswerQ5 = Power.value_power($randomNumForQ5a, $randomNumForQ5b)
 
 		if(@inputFromUserQ5 == @correctAnswerQ5)
 			$resultlist.push("Q5: Your answer #{@inputFromUserQ5} is correct! ") 
 			@score = @score +2
 		else
-			$resultlist.push("Q5: Your answer #{@inputFromUserQ5} is Incorrect. The correct answer is #{@correctAnswerQ5}. \n 
-				To solve this math do the following:  \n
-				Divide #{$randomNumForQ5a} with #{$randomNumForQ5b} = #{$divideForQ5}.  \n
-				Then multipy it by 100 = #{$divideForQ5} * 100 = #{@correctAnswerQ5}% \n")	
+			$resultlist.push("Q5: WRONG! ")	
 		end
 
 		#simple_format(resultlist)
@@ -144,28 +133,6 @@ class QuizController < ApplicationController
 
 
 	end # END of def
-
-# 	class Checkpercentage2
-
-#   #1) what is  x% of y?
-#   def self.find_amount(rate, base)
-#     result_amount = rate * base/100
-#     return result_amount
-#   end 
-  
-#   #2) x is what percentage of y?
-#   def self.find_percent(amount, base)
-#   	result_percent = (amount.to_f.round(2)/base.to_f.round(2) * 100).ceil
-#     return result_percent
-#   end
-
-#   #3) x is y% of what number?
-#   def self.find_base(amount, rate)
-#    result_base = amount/rate * 100
-#    return result_base
-#   end
-
-# end # End Module
 
 	def summary
 	end

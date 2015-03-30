@@ -1,18 +1,18 @@
 source 'https://rubygems.org'
 
-#Gems used for this project
+#Yann's gem
+gem 'power_yann', '~> 0.0.3'
+
+#Ext Gems used for this project
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'devise'
 gem 'rspec'
 gem 'byebug'
 
-# custom gems
+# custom gems created by me
 gem 'checkpercentage', '~>0.2.1'
 gem 'gradescore', '~> 0.0.1'
-
-#Yann's gem
-gem 'power_yann', '~> 0.0.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
